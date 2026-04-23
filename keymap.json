@@ -1,0 +1,31 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor && (extension == py)",
+    "bindings": {
+      "f7": [
+        "task::Spawn",
+        {
+          "task_name": "Run Python file"
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor && (extension == html)",
+    "bindings": {
+      "f7": [
+        "task::Spawn",
+        {
+          "task_name": "Open HTML in Browser"
+        }
+      ]
+    }
+  },
+]

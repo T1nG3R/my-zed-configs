@@ -1,0 +1,49 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+//
+// Example:
+[
+  {
+    "label": "Run Python file",
+    "command": "if ('$ZED_LANGUAGE' -eq 'Python') { python \"$ZED_FILE\" } else { Write-Host 'Skip: This file is not Python.' -ForegroundColor Yellow }",
+    "save": "current",
+    "hide": "on_success",
+    "shell": {
+      "with_arguments": {
+        "program": "pwsh.exe",
+        "args": ["-NoLogo", "-NoProfile"]
+      }
+    }
+  },
+  {
+    "label": "Open HTML in Browser",
+    "command": "if ('$ZED_LANGUAGE' -eq 'HTML') { Start-Process \"$ZED_FILE\" } else { Write-Host 'Skip: This file is not HTML.' -ForegroundColor Yellow }",
+    "hide": "on_success",
+    "shell": {
+      "with_arguments": {
+        "program": "pwsh.exe",
+        "args": ["-NoLogo", "-NoProfile"]
+      }
+    }
+  },
+  {
+    "label": "Start AI Edit Predictions",
+    "hide": "on_success",
+    "command": "wscript.exe",
+    "args": [
+      "D:\\llamacpp\\Invisible_qwen.vbs"
+    ],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Stop Qwen Server",
+    "hide": "always",
+    "command": "powershell",
+    "args": [
+      "-Command",
+      "Stop-Process -Name 'llama-server' -ErrorAction SilentlyContinue -Force"
+    ],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true
+  }
+]
